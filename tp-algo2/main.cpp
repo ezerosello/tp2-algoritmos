@@ -8,6 +8,7 @@
 #include "lista.h"
 #include "inicializar_datos.h"
 #include "punto_3.h"
+#include "punto_2.h"
 
 using namespace std;
 
@@ -18,6 +19,10 @@ int main() {
    int linea = 152;
    Lista<Parada*>* paradas = obtenerParadasDeLinea(linea, barrios);
 
+
+   std::string ParadaMasCercana = obtenerParadaMasCercana(-59, -35, barrios); 
+
+
     paradas->iniciarCursor();
     while (paradas->avanzarCursor()) {
         Parada* parada = paradas->obtenerCursor();
@@ -26,6 +31,7 @@ int main() {
         cout << "- Coordenada X: " << parada->getCoordenadaX() << endl;
         cout << "- Coordenada Y: " << parada->getCoordenadaY() << endl;
         cout << "- Cantidad de líneas: " << parada->getCantidadDeLineas() << endl;
+        cout << "- paradaMasCercana: " << ParadaMasCercana << endl;
         unsigned int cantidadDeLineas = parada->getCantidadDeLineas();
         int* lineas = parada->getLineas();
         cout << "- Líneas: ";
