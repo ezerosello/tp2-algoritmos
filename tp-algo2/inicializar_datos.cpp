@@ -2,8 +2,8 @@
 #include <fstream>
 #include <sstream>
 #include <cstdlib>
-#include "../includes/inicializar_datos.h"
-#include "../includes/parada.h"
+#include "inicializar_datos.h"
+#include "parada.h"
 
 using namespace std;
 

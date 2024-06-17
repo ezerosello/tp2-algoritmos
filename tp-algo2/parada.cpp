@@ -1,4 +1,4 @@
-#include "../includes/parada.h"
+#include "parada.h"
 
 using namespace std;
 

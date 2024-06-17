@@ -3,10 +3,10 @@
 #include <sstream>
 #include <string>
 #include <cstdlib>
-#include "../includes/barrio.h"
-#include "../includes/parada.h"
-#include "../includes/lista.h"
-#include "../includes/inicializar_datos.h"
+#include "barrio.h"
+#include "parada.h"
+#include "lista.h"
+#include "inicializar_datos.h"
 
 using namespace std;
 
