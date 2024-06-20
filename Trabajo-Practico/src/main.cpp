@@ -50,49 +50,53 @@ int main() {
             else{
                 switch (opcionElegida)
                 {
-                case '1':
-                    std::cout << "opcion 1" ;
+                    case '1':
+                    {
+                        std::cout << "opcion 1" ;
 
-                    break;
-
-                case '2':
-
-                	std::cout << "Ingrese coordenada x: ";
-                	std::cin >> coordX;
-                	std::cout << "Ingrese coordenada y: ";
-                	std::cin >> coordY;
-                    obtenerParadaMasCercana(coordX,coordY,barrios);
-                    break;
-
-                case '3':
-
-                	std::cout << "Ingrese una linea de colectivo: ";
-                	std::cin >> linea;
-                	obtenerParadasDeLinea(linea,barrios);
-                    break;
-
-                case '4':
-
-                    cantidadDeParadasPorLineaDeColectivo(barrios);
-                    break;
-
-                case '5':
-                	std::cout << "Ingrese el nombre del barrio: ";
-                	std::cin >> nombreBarrio;
-                	std::cout << "Ingrese una linea de colectivo: ";
-                	std::cin >> lineaColectivo;
-                	std::cout << "Ingrese coordenada x: ";
-                	std::cin >> usuarioCoordX;
-                	std::cout << "Ingrese coordenada y: ";
-                	std::cin >> usuarioCoordY;
-                	paradasLineaBarrioOrdenadas(nombreBarrio, lineaColectivo, usuarioCoordX, usuarioCoordY, barrios);
-                    break;
-
-                case '6':
-
-                    std::cout << "Gracias por utilizar nuestro programa" << std::endl;
-                    continuar = false;
-                    break;
+                        break;
+                    }
+                    case '2':
+                    {
+                        std::cout << "Ingrese coordenada x: ";
+                        std::cin >> coordX;
+                        std::cout << "Ingrese coordenada y: ";
+                        std::cin >> coordY;
+                        std::string paradaCercana = obtenerParadaMasCercana(-58.370994,-34.6356,barrios);
+                        std::cout << "La parada mas cercana es: " << paradaCercana << std::endl;
+                        break;
+                    }
+                    case '3':
+                    {
+                        std::cout << "Ingrese una linea de colectivo: ";
+                        std::cin >> linea;
+                        obtenerParadasDeLinea(linea,barrios);
+                        break;
+                    }
+                    case '4':
+                    {
+                        cantidadDeParadasPorLineaDeColectivo(barrios);
+                        break;
+                    }
+                    case '5':
+                    {
+                        std::cout << "Ingrese el nombre del barrio: ";
+                        std::cin >> nombreBarrio;
+                        std::cout << "Ingrese una linea de colectivo: ";
+                        std::cin >> lineaColectivo;
+                        std::cout << "Ingrese coordenada x: ";
+                        std::cin >> usuarioCoordX;
+                        std::cout << "Ingrese coordenada y: ";
+                        std::cin >> usuarioCoordY;
+                        paradasLineaBarrioOrdenadas(nombreBarrio, lineaColectivo, usuarioCoordX, usuarioCoordY, barrios);
+                        break;
+                    }
+                    case '6':
+                    {
+                        std::cout << "Gracias por utilizar nuestro programa" << std::endl;
+                        continuar = false;
+                        break;
+                    }
                 }
             }
         }
