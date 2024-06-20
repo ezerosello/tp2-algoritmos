@@ -1,5 +1,6 @@
 #include "punto_2.h"
 #include "lista.h"
+#include <cmath>
 
 std::string obtenerParadaMasCercana(double coordX, double coordY, Lista<Barrio*>* barrios) {
 
@@ -25,7 +26,7 @@ std::string obtenerParadaMasCercana(double coordX, double coordY, Lista<Barrio*>
       compararX = coordX - parada->getCoordenadaX();
       compararY = coordY - parada->getCoordenadaY();
 
-      double distancia = compararX * compararX + compararY * compararY;
+      double distancia = std::sqrt(compararX * compararX + compararY * compararY);
 
       if(distancia < distanciaMasCercana){
         distanciaMasCercana = distancia;
