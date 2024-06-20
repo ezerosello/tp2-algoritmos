@@ -1,11 +1,19 @@
 /*
+ * lecturaDeArchivos.cpp
+ *
+ *  Created on: 14 jun. 2024
+ *      Author: renzo
+ */
+
+
+/*
  * main.cpp
  *
  *  Created on: 13 jun. 2024
  *      Author: renzo
  */
 
-// -
+/*
 #include <iostream>
 //Proporciona funcionalidades para trabajar con flujos de datos. (No lee ni escribe archivos)
 #include <sstream>
@@ -55,4 +63,5 @@ int main(){
 	//cout << "Hola mundo" << endl;
 	return 0;
 }
+*/
 
