@@ -195,15 +195,14 @@ void inicializarDatos(const string& archivo, Lista<Barrio*>* barrios) {
         }
 
         if (barrio == NULL) {
-            Lista<Parada*>* paradas = new Lista<Parada*>();
-            barrio = new Barrio(barrioNombre, paradas);
+            barrio = new Barrio(barrioNombre);
             barrios->agregar(barrio);
         }
 
         barrio->getParadas()->agregar(parada);
+
+        delete [] lineas;
     }
 
     file.close();
 }
-
-

@@ -18,22 +18,6 @@
 int main() {
     Lista<Barrio*>* barrios = new Lista<Barrio*>();
 
-    //para punto 1
-    std::string barrioPorBuscar;
-
-    // para punto 2
-    double coordX;
-	double coordY;
-
-	//para punto 3
-	int linea;
-
-	//para punto 5;
-	std::string nombreBarrio;
-	unsigned int lineaColectivo;
-	double usuarioCoordX;
-	double usuarioCoordY;
-
     inicializarDatos("../paradas-de-colectivo.csv", barrios);
 
     std::string ingresoUsuario;
@@ -55,6 +39,8 @@ int main() {
             {
                 case '1':
                 {
+                    std::string barrioPorBuscar;
+                    
                     std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
                     std::cout<< "    Introduce el barrio que quieras buscar :: ";
                     getline(std::cin, barrioPorBuscar);
@@ -82,6 +68,9 @@ int main() {
                 }
                 case '2':
                 {
+                    double coordX;
+	                double coordY;
+                    
                     std::cout << "Ingrese coordenada x: ";
                     std::cin >> coordX;
                     std::cout << "Ingrese coordenada y: ";
@@ -92,6 +81,8 @@ int main() {
                 }
                 case '3':
                 {
+                    int linea;
+                    
                     std::cout << "Ingrese una linea de colectivo: ";
                     std::cin >> linea;
                     Lista<Parada*>* paradas = obtenerParadasDeLinea(linea,barrios);
@@ -106,6 +97,11 @@ int main() {
                 }
                 case '5':
                 {
+                    std::string nombreBarrio;
+                    unsigned int lineaColectivo;
+                    double usuarioCoordX;
+                    double usuarioCoordY;
+
                     std::cout << "Ingrese el nombre del barrio: ";
                     std::cin >> nombreBarrio;
                     std::cout << "Ingrese una linea de colectivo: ";
@@ -127,5 +123,7 @@ int main() {
         }
     }
 
+    delete barrios;
+    
     return 0;
 }

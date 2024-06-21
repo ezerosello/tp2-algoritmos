@@ -21,7 +21,7 @@ private:
   Lista<Parada *> *paradas;
 
 public:
-  Barrio(std::string nombre, Lista<Parada *> *paradas);
+  Barrio(std::string nombre);
   ~Barrio();
   std::string getNombre();
   Lista<Parada *> *getParadas();
