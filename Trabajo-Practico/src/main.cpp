@@ -17,6 +17,10 @@
 
 int main() {
     Lista<Barrio*>* barrios = new Lista<Barrio*>();
+
+    //para punto 1
+    std::string barrioPorBuscar;
+
     // para punto 2
     double coordX;
 	double coordY;
@@ -53,7 +57,14 @@ int main() {
                     case '1':
                     {
                         std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
-                        Barrio * barrio = mostrarPorBarrio(barrios);
+                        std::cout<< "    Introduce el barrio que quieras buscar :: ";
+                        getline(std::cin, barrioPorBuscar);
+                        while(!verificarIngresoValido(barrioPorBuscar)) {
+                        	std::cout<< "    Introduce un nombre de barrio valido :: ";
+                            getline(std::cin, barrioPorBuscar);
+                        }
+
+                        Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
                         if (!barrio) {
                         	std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
                         	std::cout << "No se ha encontrado resultados." << std::endl;

@@ -36,18 +36,8 @@ Barrio * buscarBarrio (std::string &nombreBarrio, Lista<Barrio *> * barrios) {
     return barrioActual;
 }
 
-Barrio * mostrarPorBarrio(Lista<Barrio *> * barrios) {
-    std::string barrioPorBuscar;
-    std::cout<< "    Introduce el barrio que quieras buscar :: ";
-    getline(std::cin, barrioPorBuscar);
-
-    while(!verificarIngresoValido(barrioPorBuscar)) {
-    	std::cout<< "    Introduce un nombre de barrio valido :: ";
-    	getline(std::cin, barrioPorBuscar);
-    }
-
+Barrio * mostrarPorBarrio(Lista<Barrio *> * barrios, std::string barrioPorBuscar) {
     transformarMinusculas(barrioPorBuscar);
     Barrio * barrioResultante = buscarBarrio(barrioPorBuscar, barrios);
-
     return barrioResultante;
 }

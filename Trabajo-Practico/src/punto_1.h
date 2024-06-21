@@ -27,6 +27,6 @@ Barrio * buscarBarrio (std::string &nombreBarrio, Lista<Barrio *> * barrios);
  * Funcion que recibe como parametro un puntero a puntero de barrios.
  * Devuelve el Barrio buscado.
  */
-Barrio * mostrarPorBarrio(Lista<Barrio *> * barrios);
+Barrio * mostrarPorBarrio(Lista<Barrio *> * barrios, std::string barrioPorBuscar);
 
 #endif //PUNTO_1_H
