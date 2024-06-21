@@ -9,6 +9,7 @@
 #include "inicializar_datos.h"
 #include "punto_4.h"
 #include "menu.h"
+#include "punto_1.h"
 #include "punto_2.h"
 #include "punto_3.h"
 #include "punto_5.h"
@@ -16,6 +17,9 @@
 
 int main() {
     Lista<Barrio*>* barrios = new Lista<Barrio*>();
+
+    //para punto 1
+    std::string barrioPorBuscar;
 
     // para punto 2
     double coordX;
@@ -52,7 +56,28 @@ int main() {
                 {
                     case '1':
                     {
-                        std::cout << "opcion 1" ;
+                        std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
+                        std::cout<< "    Introduce el barrio que quieras buscar :: ";
+                        getline(std::cin, barrioPorBuscar);
+                        while(!verificarIngresoValido(barrioPorBuscar)) {
+                        	std::cout<< "    Introduce un nombre de barrio valido :: ";
+                            getline(std::cin, barrioPorBuscar);
+                        }
+
+                        Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
+                        if (!barrio) {
+                        	std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
+                        	std::cout << "No se ha encontrado resultados." << std::endl;
+                        	std::cout << "ºººººººººººººººººººººººººººººººººº" << std::endl;
+                        	break;
+                        }
+                        std::cout << std::endl;
+
+                        std::cout << "ºººººººº " << std::endl;
+                        std::cout << "ºººººº	 ";
+                        std::cout << barrio->getNombre() << " tiene " << barrio->getParadas()->getTamanio() << " parada(s)" << std::endl;
+                        std::cout << "ºººººººº " << std::endl;
+                        std::cout << std::endl;
 
                         break;
                     }
@@ -101,8 +126,5 @@ int main() {
             }
         }
 
-
         return 0;
-
-    //imprimirArchivoParadasDeColectivo(barrios);
 }

@@ -27,7 +27,7 @@ Barrio::Barrio(std::string nombre, Lista<Parada *> *paradas)
 Barrio::~Barrio()
 {
   delete this->paradas;
-}
+};
 
 std::string Barrio::getNombre()
 {
