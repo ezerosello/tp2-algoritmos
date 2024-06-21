@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <cstdlib>
+#include <climits>
 #include "barrio.h"
 #include "parada.h"
 #include "lista.h"
@@ -39,36 +40,35 @@ int main() {
             {
                 case '1':
                 {
-                  
-                  std::string barrioPorBuscar;                   
-                  std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
-                  std::cout<< "    Introduce el barrio que quieras buscar :: ";
-                  getline(std::cin, barrioPorBuscar);
-                  while(!verificarIngresoValido(barrioPorBuscar)) {
-            	    std::cout<< "    Introduce un nombre de barrio valido :: ";
-            	    getline(std::cin, barrioPorBuscar);
-                  }
+                    std::string barrioPorBuscar;                   
+                    std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
+                    std::cout<< "    Introduce el barrio que quieras buscar :: ";
+                    getline(std::cin, barrioPorBuscar);
+                    while(!verificarIngresoValido(barrioPorBuscar)) {
+                        std::cout<< "    Introduce un nombre de barrio valido :: ";
+                        getline(std::cin, barrioPorBuscar);
+                    }
 
-                  Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
-                  if (!barrio) {
-                    std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
-                    std::cout << "No se ha encontrado resultados." << std::endl;
-                    std::cout << "ºººººººººººººººººººººººººººººººººº" << std::endl;
+                    Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
+                    if (!barrio) {
+                        std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
+                        std::cout << "No se ha encontrado resultados." << std::endl;
+                        std::cout << "ºººººººººººººººººººººººººººººººººº" << std::endl;
+                        break;
+                    }
+                    std::cout << std::endl;
+
+                    std::cout << "ºººººººº " << std::endl;
+                    std::cout << "ºººººº	 ";
+                    std::cout << barrio->getNombre() << " tiene " << barrio->getParadas()->getTamanio() << " parada(s)" << std::endl;
+                    std::cout << "ºººººººº " << std::endl;
+                    std::cout << std::endl;
                     break;
-                  }
-                  std::cout << std::endl;
-
-                  std::cout << "ºººººººº " << std::endl;
-                  std::cout << "ºººººº	 ";
-                  std::cout << barrio->getNombre() << " tiene " << barrio->getParadas()->getTamanio() << " parada(s)" << std::endl;
-                  std::cout << "ºººººººº " << std::endl;
-                  std::cout << std::endl;
-                  break;
                 }
                 case '2':
                 {
-                  double coordX;
-	                double coordY;
+                    double coordX;
+                    double coordY;
                     
                     std::cout << "Ingrese coordenada x: ";
                     std::cin >> coordX;
@@ -94,9 +94,8 @@ int main() {
                 }
                 case '4':
                 {
-                  
-                  cantidadDeParadasPorLineaDeColectivo(barrios);
-                  break;
+                    cantidadDeParadasPorLineaDeColectivo(barrios);
+                    break;
                 }
                 case '5':
                 {
@@ -122,14 +121,15 @@ int main() {
                 }
                 case '6':
                 {
-                  
-                  std::cout << "Gracias por utilizar nuestro programa" << std::endl;
-                  continuar = false;
-                  break;
+                    std::cout << "Gracias por utilizar nuestro programa" << std::endl;
+                    continuar = false;
+                    break;
                 }
             }
         }
     }
+
     delete barrios;
+
     return 0;
 }
