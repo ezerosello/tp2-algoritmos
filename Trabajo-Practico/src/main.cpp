@@ -34,97 +34,98 @@ int main() {
 	double usuarioCoordX;
 	double usuarioCoordY;
 
-    inicializarDatos("paradas-de-colectivo.csv", barrios);
+    inicializarDatos("../paradas-de-colectivo.csv", barrios);
 
     std::string ingresoUsuario;
-        char opcionElegida;
-        bool continuar = true;
+    char opcionElegida;
+    bool continuar = true;
 
-        while(continuar){
+    while(continuar){
+        imprimirOpciones();
+        std::cout << "Ingrese una opcion: ";
+        std::getline(std::cin, ingresoUsuario);
 
-            imprimirOpciones();
-            std::cout << "Ingrese una opcion: ";
-            std::getline(std::cin, ingresoUsuario);
+        opcionElegida = ingresoUsuario[0];
 
-            opcionElegida = ingresoUsuario[0];
-
-            if(!validarOpcionRango(opcionElegida) || !validarOpcion(ingresoUsuario) || ingresoUsuario.empty()){
-                std::cout << "ingreso incorrecto, por favor ingreso una opcion valida" << std::endl;
-            }
-            else{
-                switch (opcionElegida)
+        if(!validarOpcionRango(opcionElegida) || !validarOpcion(ingresoUsuario) || ingresoUsuario.empty()){
+            std::cout << "ingreso incorrecto, por favor ingreso una opcion valida" << std::endl;
+        }
+        else {
+            switch (opcionElegida)
+            {
+                case '1':
                 {
-                    case '1':
-                    {
-                        std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
-                        std::cout<< "    Introduce el barrio que quieras buscar :: ";
+                    std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
+                    std::cout<< "    Introduce el barrio que quieras buscar :: ";
+                    getline(std::cin, barrioPorBuscar);
+                    while(!verificarIngresoValido(barrioPorBuscar)) {
+                        std::cout<< "    Introduce un nombre de barrio valido :: ";
                         getline(std::cin, barrioPorBuscar);
-                        while(!verificarIngresoValido(barrioPorBuscar)) {
-                        	std::cout<< "    Introduce un nombre de barrio valido :: ";
-                            getline(std::cin, barrioPorBuscar);
-                        }
+                    }
 
-                        Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
-                        if (!barrio) {
-                        	std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
-                        	std::cout << "No se ha encontrado resultados." << std::endl;
-                        	std::cout << "ºººººººººººººººººººººººººººººººººº" << std::endl;
-                        	break;
-                        }
-                        std::cout << std::endl;
+                    Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
+                    if (!barrio) {
+                        std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
+                        std::cout << "No se ha encontrado resultados." << std::endl;
+                        std::cout << "ºººººººººººººººººººººººººººººººººº" << std::endl;
+                        break;
+                    }
+                    std::cout << std::endl;
 
-                        std::cout << "ºººººººº " << std::endl;
-                        std::cout << "ºººººº	 ";
-                        std::cout << barrio->getNombre() << " tiene " << barrio->getParadas()->getTamanio() << " parada(s)" << std::endl;
-                        std::cout << "ºººººººº " << std::endl;
-                        std::cout << std::endl;
+                    std::cout << "ºººººººº " << std::endl;
+                    std::cout << "ºººººº	 ";
+                    std::cout << barrio->getNombre() << " tiene " << barrio->getParadas()->getTamanio() << " parada(s)" << std::endl;
+                    std::cout << "ºººººººº " << std::endl;
+                    std::cout << std::endl;
 
-                        break;
-                    }
-                    case '2':
-                    {
-                        std::cout << "Ingrese coordenada x: ";
-                        std::cin >> coordX;
-                        std::cout << "Ingrese coordenada y: ";
-                        std::cin >> coordY;
-                        std::string paradaCercana = obtenerParadaMasCercana(-58.370994,-34.6356,barrios);
-                        std::cout << "La parada mas cercana es: " << paradaCercana << std::endl;
-                        break;
-                    }
-                    case '3':
-                    {
-                        std::cout << "Ingrese una linea de colectivo: ";
-                        std::cin >> linea;
-                        obtenerParadasDeLinea(linea,barrios);
-                        break;
-                    }
-                    case '4':
-                    {
-                        cantidadDeParadasPorLineaDeColectivo(barrios);
-                        break;
-                    }
-                    case '5':
-                    {
-                        std::cout << "Ingrese el nombre del barrio: ";
-                        std::cin >> nombreBarrio;
-                        std::cout << "Ingrese una linea de colectivo: ";
-                        std::cin >> lineaColectivo;
-                        std::cout << "Ingrese coordenada x: ";
-                        std::cin >> usuarioCoordX;
-                        std::cout << "Ingrese coordenada y: ";
-                        std::cin >> usuarioCoordY;
-                        paradasLineaBarrioOrdenadas(nombreBarrio, lineaColectivo, usuarioCoordX, usuarioCoordY, barrios);
-                        break;
-                    }
-                    case '6':
-                    {
-                        std::cout << "Gracias por utilizar nuestro programa" << std::endl;
-                        continuar = false;
-                        break;
-                    }
+                    break;
+                }
+                case '2':
+                {
+                    std::cout << "Ingrese coordenada x: ";
+                    std::cin >> coordX;
+                    std::cout << "Ingrese coordenada y: ";
+                    std::cin >> coordY;
+                    std::string paradaCercana = obtenerParadaMasCercana(-58.370994,-34.6356,barrios);
+                    std::cout << "La parada mas cercana es: " << paradaCercana << std::endl;
+                    break;
+                }
+                case '3':
+                {
+                    std::cout << "Ingrese una linea de colectivo: ";
+                    std::cin >> linea;
+                    Lista<Parada*>* paradas = obtenerParadasDeLinea(linea,barrios);
+                    std::cout << "Las paradas de la línea son las siguientes:" << std::endl;
+                    imprimirParadasDeLinea(paradas);
+                    break;
+                }
+                case '4':
+                {
+                    cantidadDeParadasPorLineaDeColectivo(barrios);
+                    break;
+                }
+                case '5':
+                {
+                    std::cout << "Ingrese el nombre del barrio: ";
+                    std::cin >> nombreBarrio;
+                    std::cout << "Ingrese una linea de colectivo: ";
+                    std::cin >> lineaColectivo;
+                    std::cout << "Ingrese coordenada x: ";
+                    std::cin >> usuarioCoordX;
+                    std::cout << "Ingrese coordenada y: ";
+                    std::cin >> usuarioCoordY;
+                    paradasLineaBarrioOrdenadas(nombreBarrio, lineaColectivo, usuarioCoordX, usuarioCoordY, barrios);
+                    break;
+                }
+                case '6':
+                {
+                    std::cout << "Gracias por utilizar nuestro programa" << std::endl;
+                    continuar = false;
+                    break;
                 }
             }
         }
+    }
 
-        return 0;
+    return 0;
 }

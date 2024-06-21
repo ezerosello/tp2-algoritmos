@@ -13,5 +13,6 @@
 #include "parada.h"
 
 Lista<Parada*>* obtenerParadasDeLinea(const int linea, Lista<Barrio*>* barrios);
+void imprimirParadasDeLinea(Lista<Parada*>* paradas);
 
 #endif /* PUNTO_3_H_ */
