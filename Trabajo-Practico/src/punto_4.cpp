@@ -7,9 +7,8 @@ void imprimirParadasPorLinea(Lista<Linea*>*lineas){
 		lineas->iniciarCursor();
 		while(lineas->avanzarCursor()){
 			Linea *  lineaActual = lineas->obtenerCursor();
-			std::cout << lineaActual->getNumeroLinea() << " " << lineaActual->getCantidadParadas() << std::endl;
+			std::cout << "Linea: " << lineaActual->getNumeroLinea() << " | " << "Cantidad de paradas: " << lineaActual->getCantidadParadas() << std::endl;
 		}
-	std::cout << "fin" << std::endl;
 	}
 }
 
