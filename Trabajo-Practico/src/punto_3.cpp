@@ -1,13 +1,7 @@
-/*
- * punto_3.cpp
- *
- *  Created on: 20 jun. 2024
- *      Author: renzo
- */
 #include <iostream>
 #include "punto_3.h"
 
-Lista<Parada*>* obtenerParadasDeLinea(const int linea, Lista<Barrio*>* barrios) {
+void obtenerParadasDeLinea(const int linea, Lista<Barrio*>* barrios) {
   Lista<Parada*>* resultado = new Lista<Parada*>();
 
   barrios->iniciarCursor();
@@ -32,8 +26,15 @@ Lista<Parada*>* obtenerParadasDeLinea(const int linea, Lista<Barrio*>* barrios) 
     }
   }
 
-  return resultado;
+  imprimirParadasDeLinea(resultado);
+  
+  delete resultado;
+	
 };
+
+
+
+
 
 void imprimirParadasDeLinea(Lista<Parada*>* paradas) {
   paradas->iniciarCursor();

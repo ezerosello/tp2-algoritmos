@@ -1,10 +1,3 @@
-/*
- * punto_3.h
- *
- *  Created on: 20 jun. 2024
- *      Author: renzo
- */
-
 #ifndef PUNTO_3_H_
 #define PUNTO_3_H_
 
@@ -12,7 +5,12 @@
 #include "barrio.h"
 #include "parada.h"
 
-Lista<Parada*>* obtenerParadasDeLinea(const int linea, Lista<Barrio*>* barrios);
+/*
+* PRE: la linea ingresada debe ser valida y pertenecer a las lineas de colectivo de la ciudad.
+* POST: imprime un listado de las paradas de la linea de colectivo ingresada.
+*/
+
+void obtenerParadasDeLinea(const int linea, Lista<Barrio*>* barrios);
 void imprimirParadasDeLinea(Lista<Parada*>* paradas);
 
 #endif /* PUNTO_3_H_ */
