@@ -87,9 +87,7 @@ int main() {
                     std::cout << "Ingrese una linea de colectivo: ";
                     std::cin >> linea;
                     std::cin.ignore(INT_MAX,'\n');
-                    Lista<Parada*>* paradas = obtenerParadasDeLinea(linea,barrios);
-                    std::cout << "Las paradas de la línea son las siguientes:" << std::endl;
-                    imprimirParadasDeLinea(paradas);
+                    obtenerParadasDeLinea(linea,barrios);
                     break;
                 }
                 case '4':
