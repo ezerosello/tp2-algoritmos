@@ -12,6 +12,6 @@
 #include "lista.h"
 #include "barrio.h"
 
-Lista<Parada*>* paradasLineaBarrioOrdenadas(std::string nombreBarrio, unsigned int lineaColectivo, double usuarioCoordX, double usuarioCoordY, Lista<Barrio*>* barrios);
+Lista<Parada*>* paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaColectivo, double usuarioCoordX, double usuarioCoordY, Lista<Barrio*>* barrios);
 
 #endif
