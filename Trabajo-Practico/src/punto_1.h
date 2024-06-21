@@ -14,7 +14,7 @@ bool verificarIngresoValido (std::string barrioPorBuscar);
  *Funcion auxiliar que transforma todos los caracteres de un flujo de
  *	cadena a minusculas.
  */
-void transformarMinusculas (std::string &palabraATransformar);
+void transformarMayusculas (std::string &palabraATransformar);
 
 /*
  * Funcion que recibe como parametro un puntero a un puntero de barrios y

@@ -12,10 +12,10 @@ bool verificarIngresoValido (std::string barrioPorBuscar) {
 	return (tamanioDeNombre != 0) &&  (tamanioDeNombre > 3) && !(ss >> numeroDePrueba);
 }
 
-void transformarMinusculas (std::string &palabraATransformar) {
+void transformarMayusculas (std::string &palabraATransformar) {
 	unsigned int tamanioPalabra = palabraATransformar.length();
     for(unsigned int i = 0; i < tamanioPalabra; i++) {
-    	palabraATransformar[i] = tolower(palabraATransformar[i]);
+    	palabraATransformar[i] = toupper(palabraATransformar[i]);
     }
 }
 
@@ -26,7 +26,7 @@ Barrio * buscarBarrio (std::string &nombreBarrio, Lista<Barrio *> * barrios) {
     	barrioActual = barrios->obtenerCursor();
         std::string nombreBarrioActual = barrioActual->getNombre();
 
-        transformarMinusculas(nombreBarrioActual);
+        transformarMayusculas(nombreBarrioActual);
 
         if(nombreBarrioActual == nombreBarrio) {
         	return barrioActual;
@@ -37,7 +37,7 @@ Barrio * buscarBarrio (std::string &nombreBarrio, Lista<Barrio *> * barrios) {
 }
 
 Barrio * mostrarPorBarrio(Lista<Barrio *> * barrios, std::string barrioPorBuscar) {
-    transformarMinusculas(barrioPorBuscar);
+	transformarMayusculas(barrioPorBuscar);
     Barrio * barrioResultante = buscarBarrio(barrioPorBuscar, barrios);
     return barrioResultante;
 }

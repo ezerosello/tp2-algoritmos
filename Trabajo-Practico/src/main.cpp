@@ -43,10 +43,10 @@ int main() {
                     std::string barrioPorBuscar;                   
                     std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
                     std::cout<< "    Introduce el barrio que quieras buscar :: ";
-                    getline(std::cin, barrioPorBuscar);
+                    std::getline(std::cin, barrioPorBuscar);
                     while(!verificarIngresoValido(barrioPorBuscar)) {
                         std::cout<< "    Introduce un nombre de barrio valido :: ";
-                        getline(std::cin, barrioPorBuscar);
+                        std::getline(std::cin, barrioPorBuscar);
                     }
 
                     Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
@@ -105,8 +105,7 @@ int main() {
                     double usuarioCoordY;
 
                     std::cout << "Ingrese el nombre del barrio: ";
-                    std::cin >> nombreBarrio;
-                    std::cin.ignore(INT_MAX,'\n');
+                    std::getline(std::cin, nombreBarrio);
                     std::cout << "Ingrese una linea de colectivo: ";
                     std::cin >> lineaColectivo;
                     std::cin.ignore(INT_MAX,'\n');
