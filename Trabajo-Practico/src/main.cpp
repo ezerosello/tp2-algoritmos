@@ -105,8 +105,7 @@ int main() {
                     double usuarioCoordY;
 
                     std::cout << "Ingrese el nombre del barrio: ";
-                    std::cin >> nombreBarrio;
-                    std::cin.ignore(INT_MAX,'\n');
+                    getline(std::cin, nombreBarrio);
                     std::cout << "Ingrese una linea de colectivo: ";
                     std::cin >> lineaColectivo;
                     std::cin.ignore(INT_MAX,'\n');
