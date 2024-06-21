@@ -1,5 +1,53 @@
-//
-// Created by jhoel06 on 6/20/24.
-//
-
 #include "punto_1.h"
+#include <iostream>
+#include <fstream>
+#include "lista.h"
+#include "barrio.h"
+#include <sstream>
+
+bool verificarIngresoValido (std::string barrioPorBuscar) {
+	unsigned int numeroDePrueba;
+	std::stringstream ss(barrioPorBuscar);
+	unsigned int tamanioDeNombre = barrioPorBuscar.length();
+	return (tamanioDeNombre != 0) &&  (tamanioDeNombre > 3) && !(ss >> numeroDePrueba);
+}
+
+void transformarMinusculas (std::string &palabraATransformar) {
+	unsigned int tamanioPalabra = palabraATransformar.length();
+    for(unsigned int i = 0; i < tamanioPalabra; i++) {
+    	palabraATransformar[i] = tolower(palabraATransformar[i]);
+    }
+}
+
+Barrio * buscarBarrio (std::string &nombreBarrio, Lista<Barrio *> * barrios) {
+    barrios->iniciarCursor();
+    Barrio * barrioActual;
+    while(barrios->avanzarCursor()) {
+    	barrioActual = barrios->obtenerCursor();
+        std::string nombreBarrioActual = barrioActual->getNombre();
+
+        transformarMinusculas(nombreBarrioActual);
+
+        if(nombreBarrioActual == nombreBarrio) {
+        	return barrioActual;
+        }
+    }
+    barrioActual = NULL;
+    return barrioActual;
+}
+
+Barrio * mostrarPorBarrio(Lista<Barrio *> * barrios) {
+    std::string barrioPorBuscar;
+    std::cout<< "    Introduce el barrio que quieras buscar :: ";
+    getline(std::cin, barrioPorBuscar);
+
+    while(!verificarIngresoValido(barrioPorBuscar)) {
+    	std::cout<< "    Introduce un nombre de barrio valido :: ";
+    	getline(std::cin, barrioPorBuscar);
+    }
+
+    transformarMinusculas(barrioPorBuscar);
+    Barrio * barrioResultante = buscarBarrio(barrioPorBuscar, barrios);
+
+    return barrioResultante;
+}
