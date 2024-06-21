@@ -10,7 +10,10 @@ Barrio::Barrio(std::string nombre)
 
 Barrio::~Barrio()
 {
-  delete this->paradas;
+  for (int i = 0; i < this->paradas->getTamanio(); ++i) {
+    delete this->paradas->obtener(i);
+  }
+  delete this->paradas; 
 };
 
 std::string Barrio::getNombre()

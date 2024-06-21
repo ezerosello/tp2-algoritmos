@@ -125,8 +125,11 @@ int main() {
             }
         }
     }
-
-    delete barrios;
-
+    for (int i = 0; i < barrios->getTamanio(); ++i) 
+    {
+    delete barrios->obtener(i);
+    }
+    delete barrios; 
+    
     return 0;
 }
