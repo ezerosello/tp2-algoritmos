@@ -11,17 +11,10 @@
 
 using namespace std;
 
-Barrio::Barrio(std::string nombre, Lista<Parada *> *paradas)
+Barrio::Barrio(std::string nombre)
 {
   this->nombre = nombre;
-
   this->paradas = new Lista<Parada *>;
-  /*paradas->iniciarCursor();
-  while (paradas->avanzarCursor())
-  {
-    Parada *parada = paradas->obtenerCursor();
-    this->paradas->agregar(parada);
-  }*/
 };
 
 Barrio::~Barrio()

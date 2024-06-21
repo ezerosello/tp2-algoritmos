@@ -19,7 +19,7 @@ Parada::Parada(std::string calle, std::string direccion, double coordenadaX, dou
 
 Parada::~Parada()
 {
-  delete this->lineas;
+  delete [] this->lineas;
 }
 
 string Parada::getCalle()
