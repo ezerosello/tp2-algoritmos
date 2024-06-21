@@ -101,7 +101,7 @@ int main() {
                 case '5':
                 {
                   std::string nombreBarrio;
-                  unsigned int lineaColectivo;
+                  int lineaColectivo;
                   double usuarioCoordX;
                   double usuarioCoordY;
                   std::cout << "Ingrese el nombre del barrio: ";
