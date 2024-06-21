@@ -14,7 +14,6 @@
 #include "punto_3.h"
 #include "punto_5.h"
 
-
 int main() {
     Lista<Barrio*>* barrios = new Lista<Barrio*>();
 
@@ -32,7 +31,7 @@ int main() {
         opcionElegida = ingresoUsuario[0];
 
         if(!validarOpcionRango(opcionElegida) || !validarOpcion(ingresoUsuario) || ingresoUsuario.empty()){
-            std::cout << "ingreso incorrecto, por favor ingreso una opcion valida" << std::endl;
+            std::cout << "Ingreso incorrecto, por favor ingrese una opcion valida" << std::endl;
         }
         else {
             switch (opcionElegida)
@@ -73,8 +72,10 @@ int main() {
                     
                     std::cout << "Ingrese coordenada x: ";
                     std::cin >> coordX;
+                    std::cin.ignore(INT_MAX,'\n');
                     std::cout << "Ingrese coordenada y: ";
                     std::cin >> coordY;
+                    std::cin.ignore(INT_MAX,'\n');
                     std::string paradaCercana = obtenerParadaMasCercana(-58.370994,-34.6356,barrios);
                     std::cout << "La parada mas cercana es: " << paradaCercana << std::endl;
                     break;
@@ -85,6 +86,7 @@ int main() {
                     
                     std::cout << "Ingrese una linea de colectivo: ";
                     std::cin >> linea;
+                    std::cin.ignore(INT_MAX,'\n');
                     Lista<Parada*>* paradas = obtenerParadasDeLinea(linea,barrios);
                     std::cout << "Las paradas de la línea son las siguientes:" << std::endl;
                     imprimirParadasDeLinea(paradas);
@@ -104,12 +106,16 @@ int main() {
 
                     std::cout << "Ingrese el nombre del barrio: ";
                     std::cin >> nombreBarrio;
+                    std::cin.ignore(INT_MAX,'\n');
                     std::cout << "Ingrese una linea de colectivo: ";
                     std::cin >> lineaColectivo;
+                    std::cin.ignore(INT_MAX,'\n');
                     std::cout << "Ingrese coordenada x: ";
                     std::cin >> usuarioCoordX;
+                    std::cin.ignore(INT_MAX,'\n');
                     std::cout << "Ingrese coordenada y: ";
                     std::cin >> usuarioCoordY;
+                    std::cin.ignore(INT_MAX,'\n');
                     paradasLineaBarrioOrdenadas(nombreBarrio, lineaColectivo, usuarioCoordX, usuarioCoordY, barrios);
                     break;
                 }
