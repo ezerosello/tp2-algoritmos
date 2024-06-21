@@ -9,7 +9,7 @@
 #include "punto_5.h"
 #include "punto_2.h"
 
-Lista<Parada*>* paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaColectivo, double usuarioCoordX, double usuarioCoordY, Lista<Barrio*>* barrios) {
+void paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaColectivo, double usuarioCoordX, double usuarioCoordY, Lista<Barrio*>* barrios) {
 
     Lista<Parada*>* paradasLineaBarrioOrdenadas = new Lista<Parada*>();
 
@@ -51,6 +51,6 @@ Lista<Parada*>* paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaC
     	std::cout << paradasLineaBarrioOrdenadas->obtenerCursor()->getDireccion() << std::endl;
     }
 
-    return paradasLineaBarrioOrdenadas;
+    delete paradasLineaBarrioOrdenadas;
 }
 
