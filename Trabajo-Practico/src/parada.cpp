@@ -1,6 +1,5 @@
 #include "parada.h"
-
-using namespace std;
+#include <iostream>
 
 Parada::Parada(std::string calle, std::string direccion, double coordenadaX, double coordenadaY, unsigned int cantidadDeLineas, int *lineas)
 {

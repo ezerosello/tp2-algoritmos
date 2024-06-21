@@ -1,15 +1,6 @@
-/*
- * barrio.cpp
- *
- *  Created on: 14 jun. 2024
- *      Author: renzo
- */
-
-
 #include "barrio.h"
 #include <iostream>
 
-using namespace std;
 
 Barrio::Barrio(std::string nombre)
 {

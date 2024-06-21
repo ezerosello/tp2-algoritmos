@@ -1,13 +1,4 @@
-/*
- * linea.cpp
- *
- *  Created on: 19 jun. 2024
- *      Author: renzo
- */
-
 #define NULL 0
-
-
 #include "linea.h"
 
 Linea::Linea(){
