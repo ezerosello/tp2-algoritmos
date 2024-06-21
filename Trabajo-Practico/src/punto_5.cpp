@@ -1,17 +1,9 @@
-/*
- * punto_5.cpp
- *
- *  Created on: 20 jun. 2024
- *      Author: renzo
- */
-
-
-#include "punto_5.h"
 #include "punto_1.h"
+#include "punto_5.h"
 #include "punto_2.h"
+#include <iostream>
 
-Lista<Parada*>* paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaColectivo, double usuarioCoordX, double usuarioCoordY, Lista<Barrio*>* barrios) {
-
+void paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaColectivo, double usuarioCoordX, double usuarioCoordY, Lista<Barrio*>* barrios) {
     Lista<Parada*>* paradasLineaBarrioOrdenadas = new Lista<Parada*>();
     transformarMayusculas(nombreBarrio);
     barrios->iniciarCursor();
@@ -51,6 +43,6 @@ Lista<Parada*>* paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaC
     	std::cout << paradasLineaBarrioOrdenadas->obtenerCursor()->getDireccion() << std::endl;
     }
 
-    return paradasLineaBarrioOrdenadas;
+    delete paradasLineaBarrioOrdenadas;
 }
 

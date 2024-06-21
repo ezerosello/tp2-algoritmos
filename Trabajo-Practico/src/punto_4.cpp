@@ -1,29 +1,16 @@
-/*
- * punto_4.cpp
- *
- *  Created on: 19 jun. 2024
- *      Author: renzo
- */
-
 #include "punto_4.h"
-#include "parada.h"
-#include "linea.h"
 #include <iostream>
 
-using namespace std;
 
 void imprimirParadasPorLinea(Lista<Linea*>*lineas){
 	if(!lineas->estaVacia()){
 		lineas->iniciarCursor();
 		while(lineas->avanzarCursor()){
 			Linea *  lineaActual = lineas->obtenerCursor();
-			cout << lineaActual->getNumeroLinea() << " " << lineaActual->getCantidadParadas() << endl;
+			std::cout << "Linea: " << lineaActual->getNumeroLinea() << " | " << "Cantidad de paradas: " << lineaActual->getCantidadParadas() << std::endl;
 		}
-	cout << "fin" << endl;
 	}
 }
-
-/*---------------------------------------------------------------------------------------------------------------*/
 
 bool estaEnListaLineas(int lineaParada, Lista<Linea*>*lineas){
 
@@ -46,8 +33,6 @@ bool estaEnListaLineas(int lineaParada, Lista<Linea*>*lineas){
 	}
 	return devolver;
 }
-
-/*-----------------------------------------------------------------------------------------------------------------*/
 
 void recorrerParada(Parada *parada, int* lineasParada, Lista<Linea*>*lineas){
 
@@ -77,7 +62,6 @@ void recorrerParada(Parada *parada, int* lineasParada, Lista<Linea*>*lineas){
 	}
 }
 
-/*----------------------------------------------------------------------------------------------------------------*/
 
 void crearListaLineas(Lista<Barrio*>*barrios, Lista<Linea*>*lineas){
 
@@ -98,8 +82,6 @@ void crearListaLineas(Lista<Barrio*>*barrios, Lista<Linea*>*lineas){
 	}
 }
 
-
-/*---------------------------------------------------------------------------------------------------------------*/
 
 void cantidadDeParadasPorLineaDeColectivo(Lista<Barrio*>*barrios){
 

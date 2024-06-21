@@ -12,7 +12,7 @@ bool verificarIngresoValido (std::string barrioPorBuscar);
 
 /*
  *Funcion auxiliar que transforma todos los caracteres de un flujo de
- *	cadena a minusculas.
+ *	cadena a mayusculas.
  */
 void transformarMayusculas (std::string &palabraATransformar);
 

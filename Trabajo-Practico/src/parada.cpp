@@ -1,6 +1,5 @@
 #include "parada.h"
-
-using namespace std;
+#include <iostream>
 
 Parada::Parada(std::string calle, std::string direccion, double coordenadaX, double coordenadaY, unsigned int cantidadDeLineas, int *lineas)
 {
@@ -22,12 +21,12 @@ Parada::~Parada()
   delete [] this->lineas;
 }
 
-string Parada::getCalle()
+std::string Parada::getCalle()
 {
   return this->calle;
 };
 
-string Parada::getDireccion()
+std::string Parada::getDireccion()
 {
   return this->direccion;
 };

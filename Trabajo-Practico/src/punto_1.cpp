@@ -1,8 +1,6 @@
 #include "punto_1.h"
 #include <iostream>
 #include <fstream>
-#include "lista.h"
-#include "barrio.h"
 #include <sstream>
 
 bool verificarIngresoValido (std::string barrioPorBuscar) {
