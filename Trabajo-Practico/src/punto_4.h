@@ -3,6 +3,7 @@
 
 #include "lista.h"
 #include "barrio.h"
+#include "linea.h"
 
 
 /*
