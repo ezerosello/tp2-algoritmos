@@ -24,6 +24,7 @@ int main() {
     bool continuar = true;
 
     while(continuar){
+
         imprimirOpciones();
         std::cout << "Ingrese una opcion: ";
         std::getline(std::cin, ingresoUsuario);
@@ -38,36 +39,35 @@ int main() {
             {
                 case '1':
                 {
-                    std::string barrioPorBuscar;
-                    
-                    std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
-                    std::cout<< "    Introduce el barrio que quieras buscar :: ";
-                    getline(std::cin, barrioPorBuscar);
-                    while(!verificarIngresoValido(barrioPorBuscar)) {
-                        std::cout<< "    Introduce un nombre de barrio valido :: ";
-                        getline(std::cin, barrioPorBuscar);
-                    }
+                  
+                  std::string barrioPorBuscar;                   
+                  std::cout << "~~~	Has elejido la opcion 1		~~~" << std::endl << std::endl;
+                  std::cout<< "    Introduce el barrio que quieras buscar :: ";
+                  getline(std::cin, barrioPorBuscar);
+                  while(!verificarIngresoValido(barrioPorBuscar)) {
+            	    std::cout<< "    Introduce un nombre de barrio valido :: ";
+            	    getline(std::cin, barrioPorBuscar);
+                  }
 
-                    Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
-                    if (!barrio) {
-                        std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
-                        std::cout << "No se ha encontrado resultados." << std::endl;
-                        std::cout << "ºººººººººººººººººººººººººººººººººº" << std::endl;
-                        break;
-                    }
-                    std::cout << std::endl;
-
-                    std::cout << "ºººººººº " << std::endl;
-                    std::cout << "ºººººº	 ";
-                    std::cout << barrio->getNombre() << " tiene " << barrio->getParadas()->getTamanio() << " parada(s)" << std::endl;
-                    std::cout << "ºººººººº " << std::endl;
-                    std::cout << std::endl;
-
+                  Barrio * barrio = mostrarPorBarrio(barrios, barrioPorBuscar);
+                  if (!barrio) {
+                    std::cout << "ººººººººººººººººººººººººººººººººº" << std::endl;
+                    std::cout << "No se ha encontrado resultados." << std::endl;
+                    std::cout << "ºººººººººººººººººººººººººººººººººº" << std::endl;
                     break;
+                  }
+                  std::cout << std::endl;
+
+                  std::cout << "ºººººººº " << std::endl;
+                  std::cout << "ºººººº	 ";
+                  std::cout << barrio->getNombre() << " tiene " << barrio->getParadas()->getTamanio() << " parada(s)" << std::endl;
+                  std::cout << "ºººººººº " << std::endl;
+                  std::cout << std::endl;
+                  break;
                 }
                 case '2':
                 {
-                    double coordX;
+                  double coordX;
 	                double coordY;
                     
                     std::cout << "Ingrese coordenada x: ";
@@ -76,7 +76,7 @@ int main() {
                     std::cout << "Ingrese coordenada y: ";
                     std::cin >> coordY;
                     std::cin.ignore(INT_MAX,'\n');
-                    std::string paradaCercana = obtenerParadaMasCercana(-58.370994,-34.6356,barrios);
+                    std::string paradaCercana = obtenerParadaMasCercana(coordX,coordY,barrios);
                     std::cout << "La parada mas cercana es: " << paradaCercana << std::endl;
                     break;
                 }
@@ -94,8 +94,9 @@ int main() {
                 }
                 case '4':
                 {
-                    cantidadDeParadasPorLineaDeColectivo(barrios);
-                    break;
+                  
+                  cantidadDeParadasPorLineaDeColectivo(barrios);
+                  break;
                 }
                 case '5':
                 {
@@ -121,15 +122,14 @@ int main() {
                 }
                 case '6':
                 {
-                    std::cout << "Gracias por utilizar nuestro programa" << std::endl;
-                    continuar = false;
-                    break;
+                  
+                  std::cout << "Gracias por utilizar nuestro programa" << std::endl;
+                  continuar = false;
+                  break;
                 }
             }
         }
     }
-
     delete barrios;
-    
     return 0;
 }
