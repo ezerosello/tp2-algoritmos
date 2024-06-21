@@ -41,7 +41,7 @@ int main() {
     bool continuar = true;
 
     while(continuar){
-		imprimirOpciones();
+	imprimirOpciones();
         std::cout << "Ingrese una opcion: ";
         std::getline(std::cin, ingresoUsuario);
 
