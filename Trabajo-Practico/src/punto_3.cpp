@@ -32,32 +32,15 @@ void obtenerParadasDeLinea(const int linea, Lista<Barrio*>* barrios) {
 	
 };
 
-
-
-
-
 void imprimirParadasDeLinea(Lista<Parada*>* paradas) {
+  std::cout << "Las paradas de la linea son las siguientes:" << std::endl;
+  
   paradas->iniciarCursor();
   while (paradas->avanzarCursor()) {
       Parada* parada = paradas->obtenerCursor();
       
       std::cout << std::endl;
-      std::cout << "- Calle: " << parada->getCalle() << std::endl;
-      std::cout << "- Dirección: " << parada->getDireccion() << std::endl;
-      std::cout << "- Coordenada X: " << parada->getCoordenadaX() << std::endl;
-      std::cout << "- Coordenada Y: " << parada->getCoordenadaY() << std::endl;
-      std::cout << "- Cantidad de líneas: " << parada->getCantidadDeLineas() << std::endl;
-      
-      unsigned int cantidadDeLineas = parada->getCantidadDeLineas();
-      int* lineas = parada->getLineas();
-      std::cout << "- Líneas: ";
-      for (unsigned int i = 0; i < cantidadDeLineas; i++) {
-          std::cout << lineas[i] << " ";
-      }
-      std::cout << std::endl;
-      
-      std::cout << std::endl;
-  }
-  std::cout << "-----------------------------------" << std::endl;
+      std::cout << "- " << parada->getDireccion() << std::endl;
+  }  
 }
 
