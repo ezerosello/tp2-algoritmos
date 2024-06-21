@@ -1,15 +1,21 @@
+#include "punto_1.h"
 #include "punto_5.h"
 #include <iostream>
 
 void paradasLineaBarrioOrdenadas(std::string nombreBarrio, int lineaColectivo, double usuarioCoordX, double usuarioCoordY, Lista<Barrio*>* barrios) {
 
+    transformarMinusculas(nombreBarrio);
+    
     Lista<Parada*>* paradasLineaBarrioOrdenadas = new Lista<Parada*>();
 
     barrios->iniciarCursor();
 
     while (barrios->avanzarCursor()) {
-
-        if (barrios->obtenerCursor()->getNombre() == nombreBarrio) { 
+        std::string barrioComparado = barrios->obtenerCursor()->getNombre();
+        
+        transformarMinusculas(barrioComparado);
+        
+        if (barrioComparado == nombreBarrio) { 
             Lista<Parada*>* listaParadas = barrios->obtenerCursor()->getParadas(); 
             listaParadas->iniciarCursor();
 
