@@ -1,59 +1,65 @@
 #include "punto_4.h"
 #include <iostream>
 
-
-void imprimirParadasPorLinea(Lista<Linea*>*lineas){
-	if(!lineas->estaVacia()){
+void imprimirParadasPorLinea(Lista<Linea *> *lineas)
+{
+	if (!lineas->estaVacia())
+	{
 		lineas->iniciarCursor();
-		while(lineas->avanzarCursor()){
-			Linea *  lineaActual = lineas->obtenerCursor();
+		while (lineas->avanzarCursor())
+		{
+			Linea *lineaActual = lineas->obtenerCursor();
 			std::cout << "Linea: " << lineaActual->getNumeroLinea() << " | " << "Cantidad de paradas: " << lineaActual->getCantidadParadas() << std::endl;
 		}
 	}
 }
 
-bool estaEnListaLineas(int lineaParada, Lista<Linea*>*lineas){
-
+bool estaEnListaLineas(int lineaParada, Lista<Linea *> *lineas)
+{
 	bool devolver = false;
 
-	if(lineas->estaVacia()){
+	if (lineas->estaVacia())
+	{
 		devolver = false;
 	}
-
-	else{
+	else
+	{
 		lineas->iniciarCursor();
-		while(lineas->avanzarCursor()){
+		while (lineas->avanzarCursor())
+		{
+			Linea *linea = lineas->obtenerCursor();
 
-			Linea* linea = lineas->obtenerCursor();
-
-			if(linea->getNumeroLinea() == lineaParada){
+			if (linea->getNumeroLinea() == lineaParada)
+			{
 				devolver = true;
 			}
 		}
 	}
+
 	return devolver;
 }
 
-void recorrerParada(Parada *parada, int* lineasParada, Lista<Linea*>*lineas){
-
-	for(unsigned int i = 0; i < parada->getCantidadDeLineas(); i++){
-
-		if(!estaEnListaLineas(lineasParada[i],lineas)){
+void recorrerParada(Parada *parada, int *lineasParada, Lista<Linea *> *lineas)
+{
+	for (unsigned int i = 0; i < parada->getCantidadDeLineas(); i++)
+	{
+		if (!estaEnListaLineas(lineasParada[i], lineas))
+		{
 
 			Linea *lineaNueva = new Linea();
 			lineas->agregar(lineaNueva);
 			lineaNueva->agregarNumeroLinea(lineasParada[i]);
 			lineaNueva->sumarCantidad();
 		}
-
-		else{
-
+		else
+		{
 			lineas->iniciarCursor();
-			while(lineas->avanzarCursor()){
+			while (lineas->avanzarCursor())
+			{
+				Linea *linea = lineas->obtenerCursor();
 
-				Linea* linea = lineas->obtenerCursor();
-
-				if(linea->getNumeroLinea() == lineasParada[i]){
+				if (linea->getNumeroLinea() == lineasParada[i])
+				{
 					linea->sumarCantidad();
 					break;
 				}
@@ -62,47 +68,32 @@ void recorrerParada(Parada *parada, int* lineasParada, Lista<Linea*>*lineas){
 	}
 }
 
-
-void crearListaLineas(Lista<Barrio*>*barrios, Lista<Linea*>*lineas){
-
+void crearListaLineas(Lista<Barrio *> *barrios, Lista<Linea *> *lineas)
+{
 	barrios->iniciarCursor();
-	while(barrios->avanzarCursor()){
+	while (barrios->avanzarCursor())
+	{
 
-		Barrio* barrio = barrios->obtenerCursor();
-		Lista<Parada*>* paradas = barrio->getParadas();
+		Barrio *barrio = barrios->obtenerCursor();
+		Lista<Parada *> *paradas = barrio->getParadas();
 
 		paradas->iniciarCursor();
-		while(paradas->avanzarCursor()){
+		while (paradas->avanzarCursor())
+		{
+			Parada *parada = paradas->obtenerCursor();
+			int *lineasParada = parada->getLineas();
 
-			Parada * parada = paradas->obtenerCursor();
-			int* lineasParada = parada->getLineas();
-
-			recorrerParada(parada,lineasParada,lineas);
+			recorrerParada(parada, lineasParada, lineas);
 		}
 	}
 }
 
+void cantidadDeParadasPorLineaDeColectivo(Lista<Barrio *> *barrios)
+{
+	Lista<Linea *> *lineas = new Lista<Linea *>();
 
-void cantidadDeParadasPorLineaDeColectivo(Lista<Barrio*>*barrios){
-
-	Lista<Linea*> *lineas = new Lista<Linea*>();
-
-	crearListaLineas(barrios,lineas);
+	crearListaLineas(barrios, lineas);
 	imprimirParadasPorLinea(lineas);
 
-	if(!lineas->estaVacia()){
-
-		lineas->iniciarCursor();
-		while(lineas->avanzarCursor()){
-
-			if(lineas->obtenerCursor() != NULL){
-
-				delete lineas->obtenerCursor();
-			}
-		}
-
-		delete lineas;
-	}
+	delete lineas;
 }
-
-

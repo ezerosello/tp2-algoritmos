@@ -63,7 +63,10 @@ Nodo<T>::Nodo(T dato)
 }
 
 template <typename T>
-Nodo<T>::~Nodo() {}
+Nodo<T>::~Nodo()
+{
+  delete dato;
+}
 
 template <typename T>
 T Nodo<T>::getDato()

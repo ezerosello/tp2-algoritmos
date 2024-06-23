@@ -1,7 +1,6 @@
 #include "barrio.h"
 #include <iostream>
 
-
 Barrio::Barrio(std::string nombre)
 {
   this->nombre = nombre;
@@ -10,10 +9,7 @@ Barrio::Barrio(std::string nombre)
 
 Barrio::~Barrio()
 {
-  for (int i = 0; i < this->paradas->getTamanio(); ++i) {
-    delete this->paradas->obtener(i);
-  }
-  delete this->paradas; 
+  delete this->paradas;
 };
 
 std::string Barrio::getNombre()
@@ -25,4 +21,3 @@ Lista<Parada *> *Barrio::getParadas()
 {
   return this->paradas;
 };
-
